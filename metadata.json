@@ -1,0 +1,6 @@
+{
+  "name": "Lentera Eduka",
+  "description": "Platform E-Learning & CBT Sekolah Terpadu dengan keamanan ujian layar penuh, pembuat soal AI multi-provider, analisis butir soal Excel, absensi wajah, rapor Kurikulum Merdeka, buku induk, dan tatap muka Google Meet.",
+  "requestFramePermissions": ["camera", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

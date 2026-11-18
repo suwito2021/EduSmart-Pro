@@ -1,0 +1,129 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-sans: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --font-arabic: 'Amiri', serif;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+
+  html.dark body {
+    background-color: #020617;
+    color: #f1f5f9;
+  }
+
+  html.dark select option {
+    background-color: #0f172a;
+    color: #f1f5f9;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  .font-mono, .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .font-arabic {
+    font-family: var(--font-arabic);
+    direction: rtl;
+    line-height: 2.1;
+  }
+}
+
+@keyframes petal-drift-slow {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    opacity: 0.22;
+  }
+  50% {
+    transform: translate3d(14px, -18px, 0) rotate(24deg) scale(1.06);
+    opacity: 0.34;
+  }
+}
+
+@keyframes petal-drift-reverse {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    opacity: 0.16;
+  }
+  50% {
+    transform: translate3d(-16px, 14px, 0) rotate(-22deg) scale(0.95);
+    opacity: 0.28;
+  }
+}
+
+@keyframes logo-petal-orbit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-petal-slow {
+  animation: petal-drift-slow 11s ease-in-out infinite;
+}
+
+.animate-petal-reverse {
+  animation: petal-drift-reverse 14s ease-in-out infinite;
+}
+
+.animate-petal-orbit {
+  animation: logo-petal-orbit 48s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-petal-slow,
+  .animate-petal-reverse,
+  .animate-petal-orbit {
+    animation: none !important;
+  }
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 14mm;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .print-page {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .print-page * {
+    color: #0f172a !important;
+    background-color: transparent !important;
+    border-color: #cbd5e1 !important;
+  }
+}
